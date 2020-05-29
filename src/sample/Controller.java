@@ -28,16 +28,18 @@ public class Controller {
     public void bubbleSort(ActionEvent actionEvent) {
         context = new Context(new BubbleSort());
         context.sortArray(mass);
-
+        sortedArray.setText(""+context.getArray());
     }
 
     public void insertionSort(ActionEvent actionEvent) {
         context = new Context(new InsertionSort());
         context.sortArray(mass);
+        sortedArray.setText(""+context.getArray());
     }
 
     public void selectionSort(ActionEvent actionEvent) {
         context = new Context(new SelectionSort());
         context.sortArray(mass);
+        sortedArray.setText(""+context.getArray());
     }
 }
