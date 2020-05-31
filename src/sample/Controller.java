@@ -2,17 +2,14 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
-import sample.Metods.BubbleSort;
-import sample.Metods.Context;
-import sample.Metods.InsertionSort;
-import sample.Metods.SelectionSort;
+import sample.Metods.*;
 
 
 public class Controller {
     public TextField unsortedArray;
     public TextField sortedArray;
     int[] mass = new int[10];
-    Context context;
+    Strategy strategy;
 
     public void RandomNewArray(ActionEvent actionEvent) {
         unsortedArray.setText("");
@@ -23,23 +20,24 @@ public class Controller {
             }
             else {unsortedArray.setText(unsortedArray.getText() + mass[i]);}
         }
+        System.out.println(mass);
     }
 
     public void bubbleSort(ActionEvent actionEvent) {
-        context = new Context(new BubbleSort());
-        context.sortArray(mass);
-        sortedArray.setText(""+context.getArray());  //Тут должен выводится отсортированный массив
+        strategy = new BubbleSort();
+        strategy.sort(mass);
+        sortedArray.setText(""+strategy.getArray());
     }
 
     public void insertionSort(ActionEvent actionEvent) {
-        context = new Context(new InsertionSort());
-        context.sortArray(mass);
-        sortedArray.setText(""+context.getArray());  //Тут должен выводится отсортированный массив
+        strategy = new InsertionSort();
+        strategy.sort(mass);
+        sortedArray.setText(""+strategy.getArray());
     }
 
     public void selectionSort(ActionEvent actionEvent) {
-        context = new Context(new SelectionSort());
-        context.sortArray(mass);
-        sortedArray.setText(""+context.getArray());  //Тут должен выводится отсортированный массив 
+        strategy = new SelectionSort();
+        strategy.sort(mass);
+        sortedArray.setText(""+strategy.getArray());
     }
 }
